@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CounterCount
 {
@@ -6,7 +7,53 @@ namespace CounterCount
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+        Console.WriteLine("Hello World!");
+        }
+    }
+
+    class Contours : IContours
+    {
+        private List<IContour> contours;
+
+        public Contours(List<IContour> contours)
+        {
+            this.contours = contours;
+        }
+        public IContour GetContour(int idx)
+        {
+            if (contours != null && contours.Count > 0)
+                return contours[idx];
+            else  throw new Exception("Массив контуров не существует");
+        }
+
+        public int GetContourCount()
+        {
+            if (contours != null)
+                return contours.Count;
+            else throw new Exception("Массив контуров не существует");
+        }
+    }
+
+     class TContourEdit : TInterfacedObject, IContour, IContourEdit
+    {
+        public TContourEdit(IContour contour)
+        {
+
+        }
+
+        public void AddContourBit(IContourBit contourbit)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IContourBit GetContourBit(int idx)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetContourBitCount()
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -37,22 +84,6 @@ namespace CounterCount
             throw new NotImplementedException();
         }
     }
-    class TContourEdit : TInterfacedObject, IContour, IContourEdit
-    {
-        public void AddContourBit(IContourBit counterbit)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IContourBit GetContourBit(int idx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetContourBitCount()
-        {
-            throw new NotImplementedException();
-        }
-    }
+   
 
 }
