@@ -6,10 +6,10 @@ namespace CounterCount
 {
     class CounterPoint : IContourPoint
     {
-        public CounterPoint():this(null,null)
+        public CounterPoint():this(null,null, 0)
         {           
         }
-        public CounterPoint(double? x, double? y)
+        public CounterPoint(double? x, double? y, double value)
         {
             if(x==null || y==null)
             {
@@ -55,8 +55,8 @@ namespace CounterCount
             this.isclosed = isclosed;
         }
 
-        private bool? isclosed = false;
-        private List<IContourPoint> points = new List<IContourPoint>();
+        protected bool? isclosed = false;
+        protected List<IContourPoint> points = new List<IContourPoint>();
 
         public IContourPoint GetPoint(int idx)
         {
@@ -78,7 +78,7 @@ namespace CounterCount
         }
     }
 
-    class Counter : IContour
+    class Counter: IContour
     {
         public Counter()
         {
@@ -94,7 +94,8 @@ namespace CounterCount
             }
         }
 
-        private List<IContourBit> counterBits = new List<IContourBit>();
+        protected List<IContourBit> counterBits = new List<IContourBit>();
+
         public IContourBit GetContourBit(int idx)
         {
             if (idx >= 0 && counterBits.Count <= idx)
@@ -108,6 +109,7 @@ namespace CounterCount
                 return counterBits.Count;
             else throw new Exception("Массив контурбитов отсутствует");
         }
+
     }
 
     class TRect_Float

@@ -34,54 +34,26 @@ namespace CounterCount
         }
     }
 
-     class TContourEdit : TInterfacedObject, IContour, IContourEdit
+     class TContourEdit : Counter, TInterfacedObject, IContour, IContourEdit
     {
-        public TContourEdit(IContour contour)
-        {
-
-        }
-
         public void AddContourBit(IContourBit contourbit)
         {
-            throw new NotImplementedException();
-        }
-
-        public IContourBit GetContourBit(int idx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetContourBitCount()
-        {
-            throw new NotImplementedException();
+            counterBits.Add(contourbit);
         }
     }
 
-    class TContourBitEdit : IContourBit, IContourBitEdit, TInterfacedObject
+    class TContourBitEdit : CounterBit, IContourBit, IContourBitEdit, TInterfacedObject
     {
+
         public void AddPoint(double x, double y, double value)
         {
-            throw new NotImplementedException();
-        }
-
-        public IContourPoint GetPoint(int idx)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetPointCount()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsClosed()
-        {
-            throw new NotImplementedException();
+            CounterPoint newPoint = new CounterPoint(x, y, value);
+            points.Add(newPoint);
         }
 
         public void SetClosed(bool closed)
         {
-            throw new NotImplementedException();
+            isclosed = closed;
         }
     }
    
