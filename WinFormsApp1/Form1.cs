@@ -27,10 +27,10 @@ namespace WinFormsApp1
             Random random = new Random();
             int countPoint=0;
             //List<Point> points = new List<Point>();
-            for (int i=0; i<5; i++)
+            for (int i=0; i<1; i++)
             {
                 TContourBitEdit contourBitEdit = new TContourBitEdit();
-                for(int y=10; y<100; y*=2)
+                for(int y=10; y<100; y*=5)
                 {
                    int ran = random.Next(100);
                     contourBitEdit.AddPoint(ran + y*3, i * 2 + ran, 0);
@@ -47,25 +47,17 @@ namespace WinFormsApp1
             }
 
 
-            // ContourPoint contourPoint = new ContourPoint(0, 0, 0);
-            //ContourPoint contourPoint2 = new ContourPoint(10, 10, 0);
-
-            //{
-            // new Point((int)contourPoint.GetX(), (int)contourPoint.GetY()),
-            //new Point((int)contourPoint2.GetX(), (int)contourPoint2.GetY()),
-            //};
-
             GraphicsPath path = new GraphicsPath();
             for(int i=0; i< contour.GetContourBitCount(); i++)
             {
                 Point[] points = new Point[contour.GetContourBit(i).GetPointCount()];
                 for (int y = 0; y < contour.GetContourBit(i).GetPointCount(); y++)
-                    points[y] = new Point((int)contour.GetContourBit(i).GetPoint(y).GetX(), (int)contour.GetContourBit(i).GetPoint(y).GetY());
-                if (contour.GetContourBit(i).IsClosed())
-                    path.AddPolygon(points);
+                {
+                    Point newpoint = new Point((int)contour.GetContourBit(i).GetPoint(y).GetX(), (int)contour.GetContourBit(i).GetPoint(y).GetY());
+                    points[y] = newpoint;
+                }
 
-                else
-                    path.AddLines(points);
+                 path.AddLines(points);
             }
             
             Pen myWind = new Pen(Color.Black);
@@ -73,11 +65,10 @@ namespace WinFormsApp1
           
             TRect_Float rect_Float = new TRect_Float(10,10, 100,100);
             myWind = new Pen(Color.Red);
-            g.DrawRectangle(myWind, new Rectangle((int)rect_Float.X1.GetX(),(int)rect_Float.X1.GetY(), (int)rect_Float.Y2.GetX(), (int)rect_Float.Y2.GetY()));
-
-            //myWind.Dispose();
-            //g.Dispose();
-           
+            g.DrawRectangle(myWind, new Rectangle((int)rect_Float.leftDown.GetX(),(int)rect_Float.leftDown.GetY(), (int)rect_Float.rightUp.GetX(), (int)rect_Float.rightUp.GetY()));
+            Contours contours = new Contours ();
+            contours.AddContour(contour);
+            IContour contour1 = contour.CutContoursByWindow(contours, rect_Float);
         }
 
         //void GetPointRecursive(Contour contour, Point[] points, int idxcontourBit, int idxPoint, int countPoint)
