@@ -79,7 +79,7 @@ namespace CounterCount
                             double[] z = new double[4];
                             for (int j = 0; j < 4; j++)
                             {
-                                z[j] = ZCalc(rect_Float.SidePoints[j], rect_Float.SidePoints[(j + 1) > 4 ? 0 : j + 1], contour.GetContourBit(y).GetPoint(p));
+                                z[j] = ZCalc(rect_Float.SidePoints[j], rect_Float.SidePoints[(j + 1) > 3 ? 0 : j + 1], contour.GetContourBit(y).GetPoint(p));
                                 if (z[j] == 0)
                                 {
                                     if (xpoint >= rect_Float.SidePoints[j].GetX() && xpoint <= rect_Float.SidePoints[(j + 1) > 4 ? 0 : j + 1].GetX() &&
@@ -109,9 +109,9 @@ namespace CounterCount
                                 //contourPoints.Add(contour.GetContourBit(y).GetPoint(p));
                             }
                         }
-                        if (res.GetPointCount() > 0)
-                            contourRes.AddContourBit(res);
                     }
+                    if (res.GetPointCount() > 1)
+                        contourRes.AddContourBit(res);
                 }
                    
             }
