@@ -7,7 +7,7 @@ namespace CounterCount
     /// <summary>
     /// точка
     /// </summary>
-    interface IContourPoint 
+    public interface IContourPoint 
     {
         double GetX();
         double GetY();
@@ -15,7 +15,7 @@ namespace CounterCount
     /// <summary>
     /// фрагмент контура
     /// </summary>
-    interface IContourBit
+    public interface IContourBit
     {
         int GetPointCount();
         bool IsClosed();
@@ -24,7 +24,7 @@ namespace CounterCount
     /// <summary>
     /// контур. состоит из нескольких фрагментов
     /// </summary>
-    interface IContour
+    public interface IContour
     {
         int GetContourBitCount();
         IContourBit GetContourBit(int idx);
@@ -33,7 +33,7 @@ namespace CounterCount
     /// <summary>
     /// коллекция контуров
     /// </summary>
-    interface IContours
+   public interface IContours
     {
         int GetContourCount();
         IContour GetContour(int idx);
@@ -41,7 +41,7 @@ namespace CounterCount
     /// <summary>
     /// 
     /// </summary>
-    interface IContourEdit:IContour
+   public interface IContourEdit:IContour
     {
         /// <summary>
         /// //Добавляет контурбит в контур
@@ -49,7 +49,7 @@ namespace CounterCount
         /// <param name="counterbit"></param>
         void AddContourBit(IContourBit counterbit);
     }
-    interface IContourBitEdit
+   public interface IContourBitEdit
     {
         /// <summary>
         /// Value всегда должно быть = 0
@@ -58,7 +58,7 @@ namespace CounterCount
         void SetClosed(bool closed);
 
     }
-    interface TInterfacedObject
+  public  interface TInterfacedObject
     {
 
     }

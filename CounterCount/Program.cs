@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace CounterCount
 {
@@ -11,7 +12,7 @@ namespace CounterCount
         }
     }
 
-    class Contours : IContours
+   public class Contours : IContours
     {
         private List<IContour> contours;
 
@@ -34,7 +35,7 @@ namespace CounterCount
         }
     }
 
-     class TContourEdit : Counter, TInterfacedObject, IContour, IContourEdit
+   public  class TContourEdit : Contour, TInterfacedObject, IContour, IContourEdit
     {
         public void AddContourBit(IContourBit contourbit)
         {
@@ -42,12 +43,12 @@ namespace CounterCount
         }
     }
 
-    class TContourBitEdit : CounterBit, IContourBit, IContourBitEdit, TInterfacedObject
+   public class TContourBitEdit : CounterBit, IContourBit, IContourBitEdit, TInterfacedObject
     {
 
         public void AddPoint(double x, double y, double value)
         {
-            CounterPoint newPoint = new CounterPoint(x, y, value);
+            ContourPoint newPoint = new ContourPoint(x, y, value);
             points.Add(newPoint);
         }
 
