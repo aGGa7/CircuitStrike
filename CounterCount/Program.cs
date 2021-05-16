@@ -97,10 +97,13 @@ namespace CounterCount
                                 }
                                 else if (j == 3)
                                 {
-                                    if (z[0] < 0 && z[2] > 0 && z[1] < 0 && z[3] > 0)
+                                    if (z[0] > 0 && z[2] < 0 && z[1] > 0 && z[3] < 0)
                                     {
                                         res.AddPoint(xpoint, ypoint, 0);
+                                        if (!lastPointAdd)
+                                            res.AddPoint(contour.GetContourBit(y).GetPoint(p - 1).GetX(), contour.GetContourBit(y).GetPoint(p - 1).GetY(), 0);
                                         prevPointIsCheked = true;
+                                        lastPointAdd = true;
                                     }
                                     else
                                         lastPointAdd = false;
@@ -110,8 +113,12 @@ namespace CounterCount
                             }
                         }
                     }
-                    if (res.GetPointCount() > 1)
+                    if (res.GetPointCount() > 0)
+                    {
+                        res.SetClosed(contour.GetContourBit(y).IsClosed());
                         contourRes.AddContourBit(res);
+                    }
+                        
                 }
                    
             }
