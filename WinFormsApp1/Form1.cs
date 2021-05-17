@@ -30,7 +30,7 @@ namespace WinFormsApp1
             for (int i=0; i<1; i++)
             {
                 TContourBitEdit contourBitEdit = new TContourBitEdit();
-                for(int y=10; y<100; y*=5)
+                for(int y=10; y<100; y*=2)
                 {
                    int ran = random.Next(100);
                     contourBitEdit.AddPoint(ran + y*3, i * 2 + ran, 0);

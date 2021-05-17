@@ -126,7 +126,7 @@ namespace CounterCount
                 leftUp = new ContourPoint(x1, y2, 0);
                 rightDown = new ContourPoint(x2, y1, 0);
                 rightUp = new ContourPoint(x2, y2, 0);
-                SidePoints = new ContourPoint[] { leftDown, leftUp, rightDown , rightUp };
+                SidePoints = new ContourPoint[] { leftDown, leftUp, rightUp, rightDown};
             }
             else throw new Exception("Значение Х2 и/или Y2 должно быть больше чем X1 и/или Y1");
         }
