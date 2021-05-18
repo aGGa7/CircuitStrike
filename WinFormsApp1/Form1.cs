@@ -27,7 +27,7 @@ namespace WinFormsApp1
             Random random = new Random();
             int countPoint=0;
             //List<Point> points = new List<Point>();
-            for (int i=0; i<1; i++)
+            for (int i=0; i<2; i++)
             {
                 TContourBitEdit contourBitEdit = new TContourBitEdit();
                 //for(int y=10; y<100; y*=2)
@@ -37,12 +37,20 @@ namespace WinFormsApp1
                 //   // points.Add(new Point(ran + y * 3, i * 2 + ran));
                 //    countPoint++;
                 //}
-                contourBitEdit.AddPoint(50, 5, 0);
-                contourBitEdit.AddPoint(50, 150, 0);
-                contourBitEdit.AddPoint(150, 150, 0);
-                contourBitEdit.AddPoint(150, 5, 0);
+                if(i==0)
+                {
+                    contourBitEdit.AddPoint(10, 5, 0);
+                    contourBitEdit.AddPoint(10, 50, 0);
+                    contourBitEdit.AddPoint(50, 100, 0);
+                }
+               if(i==1)
+                {
+                    contourBitEdit.AddPoint(150, 150, 0);
+                    contourBitEdit.AddPoint(150, 50, 0);
+                    contourBitEdit.AddPoint(100, 10, 0);
+                }
 
-                if (i % 2 == 0)
+                if (i % 2 != 0)
                     contourBitEdit.SetClosed(true);
                 else
                     contourBitEdit.SetClosed(false);

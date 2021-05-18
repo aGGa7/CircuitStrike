@@ -172,14 +172,14 @@ namespace CounterCount
             double a2 = y4 - y3;
             double b2 = x3 - x4;
             double c2 = -x3 * (y4 - y3) + y3* (x4 - x3);
-             double z1 = a1 * x3 + b1 * y3 + c1;
-            double z2 = a1 * x4 + b1 * y4 + c1;
+           // double z1 = a1 * x3 + b1 * y3 + c1;
+           // double z2 = a1 * x4 + b1 * y4 + c1;
             double intersectionX = 0;
             double intersectionY = 0;
             //double z3 = a2 * x1 + b2 * y1 + c2;
             //double z4 = a2 * x2 + b2 * y2 + c2;
-            // double z1 = (x3 - x1) * (y2 - y1) - (y3 - y1) * (x2 - x1);
-            // double z2 = (x4 - x1) * (y2 - y1) - (y4 - y1) * (x2 - x1);
+             double z1 = (x3 - x1) * (y2 - y1) - (y3 - y1) * (x2 - x1);
+             double z2 = (x4 - x1) * (y2 - y1) - (y4 - y1) * (x2 - x1);
             // double z3 = (x1 - x3) * (y4 - y3) - (y1 - y3) * (x4 - x3);
             // double z4 = (x2 - x3) * (y4 - y3) - (y2 - y3) * (x4 - x3);
             if(z1* z2 <0)
