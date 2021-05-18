@@ -30,14 +30,18 @@ namespace WinFormsApp1
             for (int i=0; i<1; i++)
             {
                 TContourBitEdit contourBitEdit = new TContourBitEdit();
-                for(int y=10; y<100; y*=2)
-                {
-                   int ran = random.Next(100);
-                    contourBitEdit.AddPoint(ran + y*3, i * 2 + ran, 0);
-                   // points.Add(new Point(ran + y * 3, i * 2 + ran));
-                    countPoint++;
-                }
-                
+                //for(int y=10; y<100; y*=2)
+                //{
+                //   int ran = random.Next(100);
+                //    contourBitEdit.AddPoint(ran + y*3, i * 2 + ran, 0);
+                //   // points.Add(new Point(ran + y * 3, i * 2 + ran));
+                //    countPoint++;
+                //}
+                contourBitEdit.AddPoint(50, 5, 0);
+                contourBitEdit.AddPoint(50, 150, 0);
+                contourBitEdit.AddPoint(150, 150, 0);
+                contourBitEdit.AddPoint(150, 5, 0);
+
                 if (i % 2 == 0)
                     contourBitEdit.SetClosed(true);
                 else
@@ -63,9 +67,13 @@ namespace WinFormsApp1
             Pen myWind = new Pen(Color.Black);
             g.DrawPath(myWind, path);
           
-            TRect_Float rect_Float = new TRect_Float(10,10, 100,100);
+            TRect_Float rect_Float = new TRect_Float();
+            rect_Float.X1 = 10;
+            rect_Float.X2 = 10;
+            rect_Float.Y1 = 100;
+            rect_Float.Y2 = 100;
             myWind = new Pen(Color.Red);
-            g.DrawRectangle(myWind, new Rectangle((int)rect_Float.leftDown.GetX(),(int)rect_Float.leftDown.GetY(), (int)rect_Float.rightUp.GetX(), (int)rect_Float.rightUp.GetY()));
+            g.DrawRectangle(myWind, new Rectangle((int)rect_Float.TrectAngle()[0].GetX() ,(int)rect_Float.TrectAngle()[0].GetY(), (int)rect_Float.TrectAngle()[2].GetX(), (int)rect_Float.TrectAngle()[2].GetY()));
             Contours contours = new Contours ();
             contours.AddContour(contour);
             IContour contour1 = contour.CutContoursByWindow(contours, rect_Float);

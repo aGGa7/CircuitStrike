@@ -114,21 +114,23 @@ namespace CounterCount
 
     public class TRect_Float
     {
-        public ContourPoint leftDown, rightDown, leftUp, rightUp;
-        public ContourPoint[] SidePoints; 
-        public TRect_Float() : this(0, 0, 1, 1)
-        { }
-        public TRect_Float(double x1, double y1, double x2, double y2)
-        {
-            if (x2 > x1 && y2 > y1)
-            {
-                leftDown = new ContourPoint(x1, y1, 0);
-                leftUp = new ContourPoint(x1, y2, 0);
-                rightDown = new ContourPoint(x2, y1, 0);
-                rightUp = new ContourPoint(x2, y2, 0);
-                SidePoints = new ContourPoint[] { leftDown, leftUp, rightUp, rightDown};
-            }
-            else throw new Exception("Значение Х2 и/или Y2 должно быть больше чем X1 и/или Y1");
-        }
+
+        public double X1, X2, Y1, Y2;
+        //public ContourPoint leftDown, rightDown, leftUp, rightUp;
+        //public ContourPoint[] SidePoints; 
+        //public TRect_Float() : this(0, 0, 1, 1)
+        //{ }
+        //public TRect_Float(double x1, double y1, double x2, double y2)
+        //{
+        //    if (x2 > x1 && y2 > y1)
+        //    {
+        //        leftDown = new ContourPoint(x1, y1, 0);
+        //        leftUp = new ContourPoint(x1, y2, 0);
+        //        rightDown = new ContourPoint(x2, y1, 0);
+        //        rightUp = new ContourPoint(x2, y2, 0);
+        //        SidePoints = new ContourPoint[] { leftDown, leftUp, rightUp, rightDown};
+        //    }
+        //    else throw new Exception("Значение Х2 и/или Y2 должно быть больше чем X1 и/или Y1");
+        //}
     }
 }
