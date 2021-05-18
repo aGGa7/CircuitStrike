@@ -96,7 +96,7 @@ namespace CounterCount
                             IContourPoint pointSide1 = pointbuf1.GetX() + pointbuf1.GetY() < pointbuf2.GetX() + pointbuf2.GetY() ? pointbuf1 : pointbuf2;
                             IContourPoint pointSide2 = pointbuf1.GetX() + pointbuf1.GetY() > pointbuf2.GetX() + pointbuf2.GetY() ? pointbuf1 : pointbuf2;
                             // вычисление коэфф z, если z<0 то отрезки пересекаются, если z=0 лежат на одной прямой
-                            z[j] = ZCalc(pointSide1, pointSide2, point1, point2);
+                            z.Add(ZCalc(pointSide1, pointSide2, point1, point2));
                             if (z[j].z < 0)
                             {
                                 //если пересекаются 

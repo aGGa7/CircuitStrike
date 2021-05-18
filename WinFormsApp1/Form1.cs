@@ -69,8 +69,8 @@ namespace WinFormsApp1
           
             TRect_Float rect_Float = new TRect_Float();
             rect_Float.X1 = 10;
-            rect_Float.X2 = 10;
-            rect_Float.Y1 = 100;
+            rect_Float.X2 = 100;
+            rect_Float.Y1 = 10;
             rect_Float.Y2 = 100;
             myWind = new Pen(Color.Red);
             g.DrawRectangle(myWind, new Rectangle((int)rect_Float.TrectAngle()[0].GetX() ,(int)rect_Float.TrectAngle()[0].GetY(), (int)rect_Float.TrectAngle()[2].GetX(), (int)rect_Float.TrectAngle()[2].GetY()));
